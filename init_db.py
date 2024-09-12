@@ -35,6 +35,18 @@ def create_users_table():
             pictures TEXT[]
         );
     ''')
+    cur.execute('''
+    INSERT INTO users (gender, sexual_preferences, biography, interests, profile_picture, pictures)
+    VALUES (
+        'Male', 
+        'Heterosexual', 
+        'A software engineer who loves hiking and photography.', 
+        ARRAY['hiking', 'photography', 'coding'], 
+        'profile_pic.jpg', 
+        ARRAY['pic1.jpg', 'pic2.jpg', 'pic3.jpg']
+    );
+    ''')
+
     conn.commit()
     cur.close()
     conn.close()
