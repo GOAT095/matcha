@@ -1,9 +1,10 @@
-import os
 import psycopg2
+import os
+from flask import Flask, jsonify
 from dotenv import load_dotenv
-from flask import Flask, request, jsonify
 
 load_dotenv()
+
 app = Flask(__name__)
 
 #PostgreSQL database connection details
@@ -23,6 +24,20 @@ def connect_db():
         port=5432
     )
     return conn
+
+@app.route('/')
+def index():
+    conn = connect_db()
+    cur = conn.cursor()
+    
+    # Example query: Fetch data from a table
+    cur.execute('SELECT * FROM your_table LIMIT 5;')
+    rows = cur.fetchall()
+    
+    cur.close()
+    conn.close()
+
+    return jsonify(rows)
 
 #Create the 'users' table
 def create_users_table():

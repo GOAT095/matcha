@@ -1,0 +1,8 @@
+{
+    "gender": "Female",
+    "sexual_preferences": "hetrosexual",
+    "biography": "A traveler who loves adventure and photography.",
+    "interests": ["traveling", "photography", "reading"],
+    "profile_picture": "profile_pic_female.jpg",
+    "pictures": ["pic1.jpg", "pic2.jpg", "pic3.jpg", "pic4.jpg"]
+}
